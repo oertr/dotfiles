@@ -1,0 +1,26 @@
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (i.e. more intelligent Up/Down behavior)
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+
+set input-meta on
+set output-meta on
+set convert-meta off
+set bell-style none
+
+Control-h: backward-char
+Control-l: forward-char
+Control-j: next-history
+Control-k: previous-history
+
