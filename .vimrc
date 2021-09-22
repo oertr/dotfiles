@@ -131,7 +131,3 @@ autocmd BufReadPost *
   \ |   exe "normal! g`\""
   \ | endif
 
-" 元のファイルと保存していない編集との違いを見るコマンド
-command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-  \ | wincmd p | diffthis
-
