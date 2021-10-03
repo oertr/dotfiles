@@ -7,19 +7,19 @@ autoload -Uz compinit
 compinit
 
 zstyle :compinstall filename '/home/ooe/.zshrc'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # ‘å•¶š¬•¶š‚ğ‹æ•Ê‚µ‚È‚¢
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã—ãªã„
 zstyle ':completion:*' list-colors ''
 
 bindkey -e
 
-setopt chase_links          # ƒŠƒ“ƒN‚ÖˆÚ“®‚·‚é‚Æ‚«ÀÛ‚ÌƒfƒBƒŒƒNƒgƒŠ‚ÖˆÚ“®
-setopt hist_ignore_all_dups # d•¡‚µ‚½—š—ğ‚ğ•Û‘¶‚µ‚È‚¢
-setopt list_packed          # •âŠ®Œó•â‚ğ‹l‚ß‚Ä•\¦
-setopt nolistbeep           # ƒr[ƒv‰¹ƒIƒt
-setopt share_history        # —š—ğ‚ğ‹¤—L
+setopt chase_links          # ãƒªãƒ³ã‚¯ã¸ç§»å‹•ã™ã‚‹ã¨ãå®Ÿéš›ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¸ç§»å‹•
+setopt hist_ignore_all_dups # é‡è¤‡ã—ãŸå±¥æ­´ã‚’ä¿å­˜ã—ãªã„
+setopt list_packed          # è£œå®Œå€™è£œã‚’è©°ã‚ã¦è¡¨ç¤º
+setopt nolistbeep           # ãƒ“ãƒ¼ãƒ—éŸ³ã‚ªãƒ•
+setopt share_history        # å±¥æ­´ã‚’å…±æœ‰
 setopt prompt_subst
 
-#ƒRƒ}ƒ“ƒh‚ğ“r’†‚Ü‚Å‘Å‚Á‚Ä‚©‚çAC-p, C-n‚Åˆê’v‚·‚é—š—ğ‚ğŒŸõ
+#ã‚³ãƒãƒ³ãƒ‰ã‚’é€”ä¸­ã¾ã§æ‰“ã£ã¦ã‹ã‚‰ã€C-p, C-nã§ä¸€è‡´ã™ã‚‹å±¥æ­´ã‚’æ¤œç´¢
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
