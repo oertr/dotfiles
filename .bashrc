@@ -13,6 +13,8 @@ alias reload='exec ${SHELL} -l'
 alias server='sudo python3 -m http.server 80'
 alias tree='tree --dirsfirst -I node_modules'
 alias v='vim'
+alias cp='cp -i'
+alias mv='mv -i'
 
 ### Command
 cheat (){
