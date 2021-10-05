@@ -3,6 +3,7 @@ export EDITOR=vim
 export DENO_INSTALL="/home/ro/.deno"
 export GPG_TTY=$(tty)
 export GIT_COMPLETION_SHOW_ALL=1
+export LESS='-F'
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH" #Requested from Python
