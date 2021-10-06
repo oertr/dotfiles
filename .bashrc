@@ -83,7 +83,7 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 #PS1="\n"
 PS1="$bold$green\u(${machine})@\h$white:$blue\w"
 PS1+="\$(__git_ps1 \"$reset($red%s$reset) \")"
-PS1+="$reset\$ "
+PS1+="$reset\\$ "
 export PS1
 
 unset machine
