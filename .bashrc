@@ -15,6 +15,7 @@ alias tree='tree --dirsfirst -I node_modules'
 alias v='vim'
 alias cp='cp -i'
 alias mv='mv -i'
+alias p='less'
 
 ### Command
 cheat (){
