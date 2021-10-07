@@ -19,4 +19,5 @@ ln -fvs ~/dotfiles/.inputrc ~
 ln -fvs ~/dotfiles/.profile ~
 ln -fvs ~/dotfiles/.vimrc ~
 ln -fvs ~/dotfiles/.zshrc ~
+ln -fvs ~/dotfiles/.tmux.conf
 

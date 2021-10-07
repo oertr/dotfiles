@@ -18,7 +18,7 @@ alias mv='mv -i'
 
 ### Command
 cheat (){
-  curl "https://cheat.sh/$1"
+  curl -s "https://cheat.sh/$1" | less
 }
 
 ### Config
