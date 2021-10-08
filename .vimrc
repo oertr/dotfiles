@@ -2,11 +2,21 @@ set nocompatible
 set encoding=utf-8
 scriptencoding utf-8
 
-"""""""""""""""""""" Key bind
+"""""""""""""""""""" Key bind & Command
 let mapleader = " "
 inoremap jk <ESC>
 nnoremap U <C-R>
 command -nargs=1 Recent :browse filter <args> oldfiles
+
+" カレントディレクトリを開いたファイルのディレクトリに変更
+autocmd BufEnter * silent! lcd %:p:h
+
+" カーソル位置を復元
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
+
 
 """""""""""""""""""" Plugins
 call plug#begin('~/.vim/plugged')
@@ -90,15 +100,3 @@ let g:lsp_settings_enable_suggestions=0
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-
-"""""""""""""""""""" MISC
-" カレントディレクトリを開いたファイルのディレクトリに変更
-autocmd BufEnter * silent! lcd %:p:h
-
-" カーソル位置を復元
-autocmd BufReadPost *
-  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-  \ |   exe "normal! g`\""
-  \ | endif
-
