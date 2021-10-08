@@ -6,7 +6,7 @@ scriptencoding utf-8
 let mapleader = " "
 inoremap jk <ESC>
 nnoremap U <C-R>
-
+command -nargs=1 Recent :browse filter <args> oldfiles
 
 """""""""""""""""""" Plugins
 call plug#begin('~/.vim/plugged')
