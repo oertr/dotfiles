@@ -6,6 +6,8 @@ scriptencoding utf-8
 let mapleader = " "
 inoremap jk <ESC>
 nnoremap U <C-R>
+nnoremap <C-J> <C-F>
+nnoremap <C-K> <C-B>
 command -nargs=1 Recent :browse filter <args> oldfiles
 
 " カレントディレクトリを開いたファイルのディレクトリに変更
@@ -62,7 +64,7 @@ set noswapfile
 set number
 set nrformats-=octal
 set shiftwidth=2
-set scrolloff=4
+set scrolloff=999
 set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
 set showcmd
 set smartcase
