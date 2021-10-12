@@ -10,7 +10,6 @@ nnoremap <C-J> <C-F>
 nnoremap <C-K> <C-B>
 command -nargs=1 Recent :browse filter <args> oldfiles
 
-" カレントディレクトリを開いたファイルのディレクトリに変更
 autocmd BufEnter * silent! lcd %:p:h
 
 " カーソル位置を復元
