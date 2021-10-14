@@ -21,6 +21,10 @@ alias v='vim'
 cheat (){
   curl -s "https://cheat.sh/$1" | less
 }
+mcd (){
+  mkdir $1
+  cd $1
+}
 
 ### Config
 HISTCONTROL=erasedups
