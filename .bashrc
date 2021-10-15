@@ -40,7 +40,7 @@ shopt -s globstar
 ### Prompt Colors
 case $(uname -s) in
   Linux*)
-    if grep -q Microsoft /proc/version; then
+    if [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
       machine=WSL
     else
       machine=Linux
@@ -54,15 +54,9 @@ esac
 
 reset="\[\e[0m\]";
 bold='\[\e[1m\]';
-black="\[\e[1;30m\]";
 red="\[\e[1;31m\]";
 green="\[\e[1;32m\]";
-orange="\[\e[1;33m\]";
-yellow="\[\e[1;33m\]";
 blue="\[\e[1;34m\]";
-purple="\[\e[1;35m\]";
-violet="\[\e[1;35m\]";
-cyan="\[\e[1;36m\]";
 white="\[\e[1;37m\]";
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -72,7 +66,7 @@ PS1+="\$(__git_ps1 \"$reset($red%s$reset) \")"
 PS1+="$reset\\$ "
 export PS1
 
-unset machine
+unset machine reset bold red green blue white
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
