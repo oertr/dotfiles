@@ -9,7 +9,6 @@ nnoremap U <C-R>
 nnoremap <C-J> <C-F>
 nnoremap <C-K> <C-B>
 command -nargs=1 Recent :browse filter <args> oldfiles
-
 autocmd BufEnter * silent! lcd %:p:h
 
 " カーソル位置を復元
@@ -29,8 +28,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'sainnhe/sonokai'
-"Plug 'tomasr/molokai'
+Plug 'onedark'
 call plug#end()
 
 
@@ -84,8 +82,7 @@ let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "set t_Co=256
-let g:sonokai_style="atlantis"
-colorscheme sonokai
+colorscheme onedark
 
 
 """""""""""""""""""" Plugin settings
