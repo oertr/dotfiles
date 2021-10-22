@@ -90,9 +90,7 @@ colorscheme onedark
 map cc <leader>c<space>
 
 " vim-lsp
-let g:lsp_signs_enabled=0
 let g:lsp_diagnostics_echo_cursor=1
-let g:lsp_settings_enable_suggestions=0
 
 "Tab completion
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
