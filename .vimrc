@@ -1,4 +1,3 @@
-set nocompatible
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -6,8 +5,16 @@ scriptencoding utf-8
 let mapleader = " "
 inoremap jk <ESC>
 nnoremap U <C-R>
-nnoremap <C-J> <C-F>
-nnoremap <C-K> <C-B>
+nnoremap <C-K> <PageUp>
+nnoremap <C-J> <PageDown>
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader>q <C-W>q
+
 command -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
 
@@ -24,11 +31,8 @@ Plug 'vim-jp/vimdoc-ja'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/matchit.zip'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'joshdick/onedark.vim'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 
@@ -39,15 +43,15 @@ set autoindent
 set backspace=indent,eol,start
 set breakindent
 set clipboard+=unnamedplus
-set copyindent
 set confirm
+set completeopt=menu,popup
+set copyindent
 set expandtab
 set fileencoding=utf-8
-set undofile
-set undodir=~/.vim/cache/
 set fileformat=unix
 set fileformats=unix,dos,mac
 set hidden
+set history=100
 set hlsearch
 set ignorecase
 set incsearch
@@ -55,44 +59,52 @@ set laststatus=2
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse+=a
-set noerrorbells visualbell t_vb=
 set nobackup
+set noerrorbells visualbell t_vb=
 set noswapfile
-set number
 set nrformats-=octal
-set shiftwidth=2
+set number
 set scrolloff=999
-set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
+set shiftwidth=2
+set shortmess+=I
 set showcmd
 set smartcase
-set shortmess+=I
 set softtabstop=2
+set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
 set tabstop=2
-set wildmenu
+set ttimeout
+set ttimeoutlen=100
+set undodir=~/.vim/cache/
+set undofile
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
+set wildmenu
 
 
 """"""""""""""""""" Color setting
 syntax on
 set termguicolors
 set background=dark
+colorscheme onedark
 
 " tmux 用の設定
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-"set t_Co=256
-colorscheme onedark
 
 
 """""""""""""""""""" Plugin settings
 " NERD_commenter
 map cc <leader>c<space>
 
-" vim-lsp
-let g:lsp_diagnostics_echo_cursor=1
+" ale
+let g:ale_completion_enabled=1
+let g:ale_linters = {
+\ 'python': ['flake8', 'pylsp'],
+\}
+let g:ale_fixers = {
+\ 'python': ['black','isort'],
+\}
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '○'
+nmap <Leader>f :ALEFix<CR>
+nnoremap <F2> :ALERename<CR>
 
-"Tab completion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"

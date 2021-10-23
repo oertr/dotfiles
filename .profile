@@ -5,6 +5,7 @@ export GIT_COMPLETION_SHOW_ALL=1
 export LESS='-FR'
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
