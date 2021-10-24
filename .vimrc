@@ -72,11 +72,10 @@ set smartcase
 set softtabstop=2
 set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
 set tabstop=2
-set ttimeout
-set ttimeoutlen=100
 set undodir=~/.vim/cache/
 set undofile
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
+set wildignorecase
 set wildmenu
 
 
