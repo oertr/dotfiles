@@ -10,11 +10,11 @@ alias grep='grep --color'
 alias path='echo -e ${PATH//:/\\n}'
 alias reload='exec ${SHELL} -l'
 alias server='sudo python3 -m http.server 80'
-alias tree='tree --dirsfirst -I node_modules -C'
+alias tree='tree --dirsfirst -I "node_modules|.git" -Ca'
 alias cp='cp -i'
 alias mv='mv -i'
 alias p='less'
-alias l='ls -AFlh --color=auto --group-directories-first'
+alias l='ls -AFlhG --color=auto --group-directories-first'
 alias v='vim'
 
 ### Command
