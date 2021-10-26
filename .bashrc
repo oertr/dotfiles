@@ -27,15 +27,16 @@ mcd (){
 }
 
 ### Config
-HISTCONTROL=erasedups
-HISTSIZE=3000
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
 HISTFILESIZE=1000000
-shopt -s histappend
-shopt -s checkwinsize
-shopt -s nocaseglob
-shopt -s cdspell
 shopt -s autocd
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist
 shopt -s globstar
+shopt -s histappend
+shopt -s nocaseglob
 
 ### Prompt Colors
 case $(uname -s) in
