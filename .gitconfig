@@ -17,3 +17,7 @@
 	rebase = false
 [include]
 	path = ~/.gitconfig.local
+[url "git://github.com/"]
+	insteadOf = readonly:
+[url "git@github.com:"]
+	insteadOf = github:
