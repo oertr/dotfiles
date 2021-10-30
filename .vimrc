@@ -67,6 +67,7 @@ set number
 set scrolloff=999
 set shiftwidth=2
 set shortmess+=I
+set shortmess-=S
 set showcmd
 set smartcase
 set softtabstop=2
