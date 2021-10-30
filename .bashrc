@@ -59,6 +59,9 @@ case $(uname -s) in
   MINGW*)     machine=MinGW;;
   *)          machine=$(uname -s)
 esac
+if [ -f /.dockerenv ]; then
+  machine=Docker
+fi
 
 reset="\[\e[0m\]";
 bold='\[\e[1m\]';
