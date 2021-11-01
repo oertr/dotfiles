@@ -19,6 +19,7 @@ alias p='fc -s | less'
 alias upgradable='apt update -qqq && apt list --upgradable'
 alias s='sudo $(fc -ln -1)'
 alias py='python3'
+alias g='git'
 
 ### Command
 cheat (){
