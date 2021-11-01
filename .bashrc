@@ -20,6 +20,7 @@ alias upgradable='apt update -qqq && apt list --upgradable'
 alias s='sudo $(fc -ln -1)'
 alias py='python3'
 alias g='git'
+alias devpy='PYTHONASYNCIODEBUG=1 python3 -X dev -W default'
 
 ### Command
 cheat (){
