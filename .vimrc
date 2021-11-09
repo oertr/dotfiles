@@ -102,6 +102,7 @@ map cc <leader>c<space>
 
 " ale
 let g:ale_completion_enabled=1
+let g:ale_completion_delay=50
 let g:ale_linters = {
 \ 'python': ['flake8', 'pylsp'],
 \}
@@ -110,6 +111,7 @@ let g:ale_fixers = {
 \}
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '○'
-nmap <Leader>f :ALEFix<CR>
-nnoremap <F2> :ALERename<CR>
+nmap <Leader>f <Plug>(ale_fix)
+nmap <leader>g <Plug>(ale_go_to_definition)
+nmap <leader>r <Plug>(ale_rename)
 
