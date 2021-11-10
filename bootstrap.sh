@@ -8,10 +8,6 @@ curl -sLo ~/bin/git-prompt.sh --create-dirs \
 curl -sLo ~/.vim/autoload/plug.vim --create-dirs \
   "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
-## for vim
-mkdir -p ~/.vim/cache
-vim -E -s -u ~/.vimrc +PlugInstall +qall
-
 ln -fvs ~/dotfiles/.bashrc ~
 ln -fvs ~/dotfiles/.bash_profile ~
 ln -fvs ~/dotfiles/.gitconfig ~
@@ -19,4 +15,8 @@ ln -fvs ~/dotfiles/.inputrc ~
 ln -fvs ~/dotfiles/.profile ~
 ln -fvs ~/dotfiles/.vimrc ~
 ln -fvs ~/dotfiles/.tmux.conf ~
+
+## for vim
+mkdir -p ~/.vim/cache
+vim -E -s -u ~/.vimrc +PlugInstall +qall
 
