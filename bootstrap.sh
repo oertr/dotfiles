@@ -5,6 +5,9 @@ curl -sLo ~/bin/z.sh --create-dirs \
   "https://raw.githubusercontent.com/rupa/z/master/z.sh"
 curl -sLo ~/bin/git-prompt.sh --create-dirs \
   "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh"
+curl -sLo ~/.vim/autoload/plug.vim --create-dirs \
+  "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+
 
 ## For 'undofile' option in vim
 mkdir -p ~/.vim/cache
