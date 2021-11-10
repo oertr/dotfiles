@@ -8,9 +8,9 @@ curl -sLo ~/bin/git-prompt.sh --create-dirs \
 curl -sLo ~/.vim/autoload/plug.vim --create-dirs \
   "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
 
-
-## For 'undofile' option in vim
+## for vim
 mkdir -p ~/.vim/cache
+vim -E -s -u ~/.vimrc +PlugInstall +qall
 
 ln -fvs ~/dotfiles/.bashrc ~
 ln -fvs ~/dotfiles/.bash_profile ~
