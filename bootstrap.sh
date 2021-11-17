@@ -18,5 +18,4 @@ ln -fvs ~/dotfiles/.tmux.conf ~
 
 ## for vim
 mkdir -p ~/.vim/cache
-vim -E -s -u ~/.vimrc -c "PlugInstall --sync"  -c qall
 
