@@ -98,6 +98,7 @@ map cc <leader>c<space>
 " ale
 let g:ale_completion_enabled=1
 let g:ale_python_auto_poetry=1
+let g:ale_fix_on_save=1
 let g:ale_linters = {
 \ 'python': ['flake8', 'pylsp'],
 \}

@@ -1,12 +1,10 @@
 [alias]
-	s = status
 	l = log --graph --abbrev-commit
 	b = branch
 	c = commit --allow-empty-message -m
 	ac = commit --allow-empty-message -a -m
 	tree = log --graph --oneline --all
 	p = push
-	d = diff
 [commit]
 	gpgSign = true
 [init]

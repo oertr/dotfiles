@@ -19,8 +19,11 @@ alias p='fc -s | less'
 alias upgradable='apt update -qqq && apt list --upgradable'
 alias s='sudo $(fc -ln -1)'
 alias py='python3'
-alias g='git'
 alias devpy='PYTHONASYNCIODEBUG=1 python3 -X dev -W default'
+alias g='git'
+alias gs='git status'
+alias gd='git diff'
+alias gl='git log'
 
 ### Command
 cheat (){
