@@ -97,8 +97,9 @@ map cc <leader>c<space>
 
 " ale
 let g:ale_completion_enabled=1
+let g:ale_python_auto_poetry=1
 let g:ale_linters = {
-\ 'python': ['flake8', 'pyright'],
+\ 'python': ['flake8', 'pylsp'],
 \}
 let g:ale_fixers = {
 \ 'python': ['black','isort'],
