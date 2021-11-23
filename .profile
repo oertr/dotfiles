@@ -3,6 +3,7 @@ export EDITOR=vim
 export GPG_TTY=$(tty)
 export GIT_COMPLETION_SHOW_ALL=1
 export LESS='-FR'
+export MANOPT='--nj'
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

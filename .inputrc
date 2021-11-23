@@ -5,9 +5,11 @@ set completion-ignore-case on
 set convert-meta off
 set editing-mode vi
 set input-meta on
+set menu-complete-display-prefix on
 set output-meta on
 set show-all-if-ambiguous on
 
 Control-j: next-history
 Control-k: previous-history
+TAB: menu-complete
 
