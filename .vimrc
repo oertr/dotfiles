@@ -14,6 +14,7 @@ nnoremap <Leader>k <C-W>k
 nnoremap <Leader>l <C-W>l
 nnoremap <Leader>h <C-W>h
 nnoremap <Leader>q <C-W>q
+nnoremap <Leader>p :Recent<SPACE>
 
 command -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
