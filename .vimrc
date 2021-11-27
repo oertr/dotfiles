@@ -35,6 +35,7 @@ Plug 'vim-scripts/matchit.zip'
 Plug 'joshdick/onedark.vim'
 Plug 'dense-analysis/ale'
 call plug#end()
+runtime ftplugin/man.vim
 
 
 """""""""""""""""""" GLOBAL
