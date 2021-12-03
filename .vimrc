@@ -3,18 +3,18 @@ scriptencoding utf-8
 
 """""""""""""""""""" Key bind & Command
 let mapleader = " "
-inoremap jk <ESC>
-nnoremap U <C-R>
-nnoremap <C-K> <PageUp>
-nnoremap <C-J> <PageDown>
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap jk <ESC>
+nnoremap <C-J> <PageDown>
+nnoremap <C-K> <PageUp>
+nnoremap <Leader>h <C-W>h
 nnoremap <Leader>j <C-W>j
 nnoremap <Leader>k <C-W>k
 nnoremap <Leader>l <C-W>l
-nnoremap <Leader>h <C-W>h
-nnoremap <Leader>q <C-W>q
 nnoremap <Leader>p :Recent<SPACE>
+nnoremap <Leader>q <C-W>q
+nnoremap U <C-R>
 
 command -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
@@ -28,12 +28,12 @@ autocmd BufReadPost *
 
 """""""""""""""""""" Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'vim-jp/vimdoc-ja'
+Plug 'dense-analysis/ale'
+Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/matchit.zip'
-Plug 'joshdick/onedark.vim'
-Plug 'dense-analysis/ale'
 call plug#end()
 runtime ftplugin/man.vim
 
@@ -45,8 +45,8 @@ set autoindent
 set backspace=indent,eol,start
 set breakindent
 set clipboard+=unnamedplus
-set confirm
 set completeopt=menu,popup
+set confirm
 set copyindent
 set expandtab
 set fileencoding=utf-8
