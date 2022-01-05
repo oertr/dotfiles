@@ -12,8 +12,8 @@ nnoremap <Leader>h <C-W>h
 nnoremap <Leader>j <C-W>j
 nnoremap <Leader>k <C-W>k
 nnoremap <Leader>l <C-W>l
-nnoremap <Leader>p :Recent<SPACE>
 nnoremap <Leader>q <C-W>q
+nnoremap <Leader>p :Recent<SPACE>
 nnoremap U <C-R>
 
 command -nargs=1 Recent :browse filter <args> oldfiles
@@ -28,10 +28,13 @@ autocmd BufReadPost *
 
 """""""""""""""""""" Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'bling/vim-bufferline'
 Plug 'dense-analysis/ale'
 Plug 'joshdick/onedark.vim'
+Plug 'lambdalisue/fern.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/matchit.zip'
 call plug#end()
@@ -73,7 +76,7 @@ set shortmess-=S
 set showcmd
 set smartcase
 set softtabstop=2
-set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
+"set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
 set tabstop=2
 set undodir=~/.vim/cache/
 set undofile
@@ -111,4 +114,18 @@ let g:ale_sign_warning = '○'
 nmap <Leader>f <Plug>(ale_fix)
 nmap <leader>g <Plug>(ale_go_to_definition)
 nmap <leader>r <Plug>(ale_rename)
+
+" Fern
+let g:fern#renderer#default#leaf_symbol = ""
+let g:fern#renderer#default#collapsed_symbol = "▶"
+let g:fern#renderer#default#expanded_symbol = "▼"
+let g:fern#default_hidden = 1
+nmap <leader>e :Fern . -drawer -toggle -reveal=%<CR>
+
+" bufferline
+let g:bufferline_echo = 0
+
+" airline
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline_extensions = ['bufferline']
 
