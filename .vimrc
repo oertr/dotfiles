@@ -120,7 +120,8 @@ let g:fern#renderer#default#leaf_symbol = ""
 let g:fern#renderer#default#collapsed_symbol = "▶"
 let g:fern#renderer#default#expanded_symbol = "▼"
 let g:fern#default_hidden = 1
-nmap <leader>e :Fern . -drawer -toggle -reveal=%<CR>
+nmap <leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
+autocmd FileType fern set nonumber signcolumn=no
 
 " bufferline
 let g:bufferline_echo = 0
