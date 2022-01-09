@@ -28,13 +28,11 @@ autocmd BufReadPost *
 
 """""""""""""""""""" Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'bling/vim-bufferline'
 Plug 'dense-analysis/ale'
 Plug 'joshdick/onedark.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-jp/vimdoc-ja'
 Plug 'vim-scripts/matchit.zip'
 call plug#end()
@@ -44,6 +42,7 @@ runtime ftplugin/man.vim
 """""""""""""""""""" GLOBAL
 filetype plugin indent on
 
+set autoread
 set autoindent
 set backspace=indent,eol,start
 set breakindent
@@ -60,7 +59,7 @@ set history=100
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=2
+set laststatus=0
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse+=a
@@ -69,6 +68,7 @@ set noerrorbells visualbell t_vb=
 set noswapfile
 set nrformats-=octal
 set number
+set ruler
 set scrolloff=999
 set shiftwidth=2
 set shortmess+=I
@@ -78,12 +78,16 @@ set smartcase
 set softtabstop=2
 "set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
 set tabstop=2
+set termwinscroll=5000
 set undodir=~/.vim/cache/
 set undofile
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
 set wildignorecase
 set wildmenu
 
+if executable("rg")
+  set grepprg=rg\ --vimgrep
+endif
 
 """"""""""""""""""" Color setting
 syntax on
@@ -122,11 +126,4 @@ let g:fern#renderer#default#expanded_symbol = "▼"
 let g:fern#default_hidden = 1
 nmap <leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
 autocmd FileType fern set nonumber signcolumn=no
-
-" bufferline
-let g:bufferline_echo = 0
-
-" airline
-let g:airline#extensions#wordcount#enabled = 0
-let g:airline_extensions = ['bufferline']
 
