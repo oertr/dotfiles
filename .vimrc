@@ -112,6 +112,10 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \ 'python': ['black','isort'],
+\ 'typescript': ['prettier'],
+\ 'javascript': ['prettier'],
+\ 'json': ['prettier'],
+\ 'yaml': ['prettier'],
 \}
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '○'
