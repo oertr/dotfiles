@@ -9,7 +9,7 @@ set menu-complete-display-prefix off
 set output-meta on
 set show-all-if-ambiguous on
 
-Control-j: next-history
-Control-k: previous-history
+Control-k: history-search-backward
+Control-j: history-search-forward
 TAB: menu-complete
 
