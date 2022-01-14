@@ -6,8 +6,6 @@ let mapleader = " "
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap jk <ESC>
-nnoremap <C-J> <PageDown>
-nnoremap <C-K> <PageUp>
 nnoremap <Leader>h <C-W>h
 nnoremap <Leader>j <C-W>j
 nnoremap <Leader>k <C-W>k
@@ -15,6 +13,8 @@ nnoremap <Leader>l <C-W>l
 nnoremap <Leader>q <C-W>q
 nnoremap <Leader>p :Recent<SPACE>
 nnoremap U <C-R>
+autocmd FileType help nnoremap <buffer> u <PageUp>
+autocmd FileType help nnoremap <buffer> f <PageDown>
 
 command -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
@@ -42,11 +42,10 @@ runtime ftplugin/man.vim
 """""""""""""""""""" GLOBAL
 filetype plugin indent on
 
-set autoread
 set autoindent
+set autoread
 set backspace=indent,eol,start
 set breakindent
-set clipboard+=unnamedplus
 set completeopt=menu,popup
 set confirm
 set copyindent
@@ -55,30 +54,29 @@ set fileencoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos,mac
 set hidden
-set history=100
 set hlsearch
 set ignorecase
 set incsearch
-set laststatus=0
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set mouse+=a
+set mouse=a
 set nobackup
 set noerrorbells visualbell t_vb=
 set noswapfile
 set nrformats-=octal
 set number
 set ruler
-set scrolloff=999
 set shiftwidth=2
 set shortmess+=I
 set shortmess-=S
 set showcmd
 set smartcase
 set softtabstop=2
-"set statusline=%M%r%t(%{&fileencoding}[%{&fileformat}])%=%p%%\ %y\ %h
+set splitbelow
+set splitright
 set tabstop=2
-set termwinscroll=5000
+set timeoutlen=500
+set title
 set undodir=~/.vim/cache/
 set undofile
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
