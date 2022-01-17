@@ -27,9 +27,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
 Plug 'lambdalisue/fern.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'tpope/vim-surround'
 Plug 'vim-jp/vimdoc-ja'
-Plug 'sonph/onehalf', {'rtp': 'vim'}
 call plug#end()
 
 
