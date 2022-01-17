@@ -13,30 +13,24 @@ nnoremap <Leader>l <C-W>l
 nnoremap <Leader>q <C-W>q
 nnoremap <Leader>p :Recent<SPACE>
 nnoremap U <C-R>
-autocmd FileType help nnoremap <buffer> u <PageUp>
-autocmd FileType help nnoremap <buffer> f <PageDown>
+nnoremap q: :q
 
-command -nargs=1 Recent :browse filter <args> oldfiles
+command! -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
-
-" カーソル位置を復元
-autocmd BufReadPost *
-  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-  \ |   exe "normal! g`\""
-  \ | endif
+autocmd FileType help setlocal scrolloff=999
 
 
 """""""""""""""""""" Plugins
+packadd! matchit
+
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
-Plug 'joshdick/onedark.vim'
 Plug 'lambdalisue/fern.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'vim-jp/vimdoc-ja'
-Plug 'vim-scripts/matchit.zip'
+Plug 'sonph/onehalf', {'rtp': 'vim'}
 call plug#end()
-runtime ftplugin/man.vim
 
 
 """""""""""""""""""" GLOBAL
@@ -66,6 +60,7 @@ set noswapfile
 set nrformats-=octal
 set number
 set ruler
+set scrolloff=5
 set shiftwidth=2
 set shortmess+=I
 set shortmess-=S
@@ -91,7 +86,7 @@ endif
 syntax on
 set termguicolors
 set background=dark
-colorscheme onedark
+colorscheme onehalfdark
 
 " tmux 用の設定
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -103,10 +98,15 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 map cc <leader>c<space>
 
 " ale
+let g:ale_linters_explicit=1
 let g:ale_completion_enabled=1
 let g:ale_python_auto_poetry=1
 let g:ale_linters = {
 \ 'python': ['flake8', 'pylsp'],
+\ 'json': 'all',
+\ 'yaml': 'all',
+\ 'typescript': 'all',
+\ 'javascript': 'all'
 \}
 let g:ale_fixers = {
 \ 'python': ['black','isort'],
@@ -127,5 +127,5 @@ let g:fern#renderer#default#collapsed_symbol = "▶"
 let g:fern#renderer#default#expanded_symbol = "▼"
 let g:fern#default_hidden = 1
 nmap <leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
-autocmd FileType fern set nonumber signcolumn=no
+autocmd FileType fern setlocal nonumber signcolumn=no
 
