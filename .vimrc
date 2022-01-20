@@ -24,7 +24,7 @@ autocmd FileType help setlocal scrolloff=999
 packadd! matchit
 
 call plug#begin('~/.vim/plugged')
-Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale', {'for': ['typescript', 'python', 'javascript', 'json', 'yaml']}
 Plug 'lambdalisue/fern.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
@@ -34,7 +34,7 @@ call plug#end()
 
 
 """""""""""""""""""" GLOBAL
-filetype plugin indent on
+"filetype plugin indent on
 
 set autoindent
 set autoread
@@ -56,6 +56,7 @@ set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
 set noerrorbells visualbell t_vb=
+set nostartofline
 set noswapfile
 set nrformats-=octal
 set number
@@ -83,7 +84,7 @@ if executable("rg")
 endif
 
 """"""""""""""""""" Color setting
-syntax on
+"syntax on
 set termguicolors
 set background=dark
 colorscheme onehalfdark
@@ -92,6 +93,10 @@ colorscheme onehalfdark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
+" カーソルの形状
+let &t_SI = "\e[6 q" " 挿入モードのカーソル
+let &t_SR = "\e[4 q" " 置換モードのカーソル
+let &t_EI = "\e[2 q" " 挿入、置換モード終了
 
 """""""""""""""""""" Plugin settings
 " NERD_commenter
