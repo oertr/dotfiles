@@ -10,7 +10,7 @@ nnoremap <Leader>h <C-W>h
 nnoremap <Leader>j <C-W>j
 nnoremap <Leader>k <C-W>k
 nnoremap <Leader>l <C-W>l
-nnoremap <Leader>q <C-W>q
+nnoremap <Leader>q <C-W>c
 nnoremap <Leader>p :Recent<SPACE>
 nnoremap U <C-R>
 nnoremap q: :q
@@ -21,16 +21,63 @@ autocmd FileType help setlocal scrolloff=999
 
 
 """""""""""""""""""" Plugins
+" disable any standard plugin
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_vimballPlugin = 1
+let g:loaded_vimball = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_tar = 1
+let g:loaded_zipPlugin= 1
+let g:loaded_zip = 1
+let loaded_gzip = 1
+
+" install plugin
 packadd! matchit
 
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale', {'for': ['typescript', 'python', 'javascript', 'json', 'yaml']}
 Plug 'lambdalisue/fern.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
+
+" vim-commentary
+autocmd FileType * let b:commentary_startofline=1
+
+" ale
+let g:ale_linters_explicit=1
+let g:ale_completion_enabled=1
+let g:ale_python_auto_poetry=1
+let g:ale_linters = {
+\ 'python': ['flake8', 'pylsp'],
+\ 'json': 'all',
+\ 'yaml': 'all',
+\ 'typescript': 'all',
+\ 'javascript': 'all'
+\}
+let g:ale_fixers = {
+\ 'python': ['black','isort'],
+\ 'typescript': ['prettier'],
+\ 'javascript': ['prettier'],
+\ 'json': ['prettier'],
+\ 'yaml': ['prettier'],
+\}
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '○'
+nmap <Leader>f <Plug>(ale_fix)
+nmap <leader>g <Plug>(ale_go_to_definition)
+nmap <leader>r <Plug>(ale_rename)
+
+" Fern
+let g:fern#renderer#default#leaf_symbol = ""
+let g:fern#renderer#default#collapsed_symbol = "▶"
+let g:fern#renderer#default#expanded_symbol = "▼"
+let g:fern#default_hidden = 1
+nmap <Leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
+autocmd FileType fern setlocal nonumber signcolumn=no
 
 
 """""""""""""""""""" GLOBAL
@@ -97,40 +144,4 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let &t_SI = "\e[6 q" " 挿入モードのカーソル
 let &t_SR = "\e[4 q" " 置換モードのカーソル
 let &t_EI = "\e[2 q" " 挿入、置換モード終了
-
-"""""""""""""""""""" Plugin settings
-" NERD_commenter
-map cc <leader>c<space>
-
-" ale
-let g:ale_linters_explicit=1
-let g:ale_completion_enabled=1
-let g:ale_python_auto_poetry=1
-let g:ale_linters = {
-\ 'python': ['flake8', 'pylsp'],
-\ 'json': 'all',
-\ 'yaml': 'all',
-\ 'typescript': 'all',
-\ 'javascript': 'all'
-\}
-let g:ale_fixers = {
-\ 'python': ['black','isort'],
-\ 'typescript': ['prettier'],
-\ 'javascript': ['prettier'],
-\ 'json': ['prettier'],
-\ 'yaml': ['prettier'],
-\}
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '○'
-nmap <Leader>f <Plug>(ale_fix)
-nmap <leader>g <Plug>(ale_go_to_definition)
-nmap <leader>r <Plug>(ale_rename)
-
-" Fern
-let g:fern#renderer#default#leaf_symbol = ""
-let g:fern#renderer#default#collapsed_symbol = "▶"
-let g:fern#renderer#default#expanded_symbol = "▼"
-let g:fern#default_hidden = 1
-nmap <leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
-autocmd FileType fern setlocal nonumber signcolumn=no
 
