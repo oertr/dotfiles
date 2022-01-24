@@ -1,24 +1,52 @@
+﻿"""""""""""""""""""" GLOBAL
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set breakindent
+set completeopt=menu,popup
+set confirm
+set copyindent
 set encoding=utf-8
-scriptencoding utf-8
+set expandtab
+set fileencoding=utf-8
+set fileformat=unix
+set fileformats=unix,dos,mac
+" set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set list listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set mouse=a
+set nobackup
+set noerrorbells visualbell t_vb=
+set nostartofline
+set noswapfile
+set nrformats-=octal
+set number
+set ruler
+set scrolloff=5
+set shiftwidth=2
+" set shortmess+=I
+set shortmess-=S
+set showcmd
+set smartcase
+set softtabstop=2
+set splitbelow
+set splitright
+set tabstop=2
+set termguicolors
+set timeoutlen=500
+set title
+set undodir=~/.vim/cache/
+set undofile
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
+set wildignorecase
+set wildmenu
 
-"""""""""""""""""""" Key bind & Command
-let mapleader = " "
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap jk <ESC>
-nnoremap <Leader>h <C-W>h
-nnoremap <Leader>j <C-W>j
-nnoremap <Leader>k <C-W>k
-nnoremap <Leader>l <C-W>l
-nnoremap <Leader>q <C-W>c
-nnoremap <Leader>p :Recent<SPACE>
-nnoremap U <C-R>
-nnoremap q: :q
-
-command! -nargs=1 Recent :browse filter <args> oldfiles
-autocmd BufEnter * silent! lcd %:p:h
-autocmd FileType help setlocal scrolloff=999
-
+if executable("rg")
+  set grepprg=rg\ --vimgrep
+endif
 
 """""""""""""""""""" Plugins
 " disable any standard plugin
@@ -32,8 +60,7 @@ let g:loaded_zipPlugin = 1
 let g:loaded_zip = 1
 let g:loaded_getscriptPlugin = 1
 let g:loaded_2html_plugin = 1
-let loaded_gzip = 1
-
+let g:loaded_gzip = 1
 
 " install plugin
 packadd! matchit
@@ -46,6 +73,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
+
+" colorscheme
+colorscheme onehalfdark
 
 " vim-commentary
 autocmd FileType * let b:commentary_startofline=1
@@ -82,63 +112,25 @@ let g:fern#default_hidden = 1
 nmap <Leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
 autocmd FileType fern setlocal nonumber signcolumn=no
 
+"""""""""""""""""""" Key bind & Command
+let mapleader = " "
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap jk <ESC>
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>q <C-W>c
+nnoremap <Leader>p :Recent<SPACE>
+nnoremap U <C-R>
+nnoremap q: :q
 
-"""""""""""""""""""" GLOBAL
-"filetype plugin indent on
+command! -nargs=1 Recent :browse filter <args> oldfiles
+autocmd BufEnter * silent! lcd %:p:h
+autocmd FileType help setlocal scrolloff=999
 
-set autoindent
-set autoread
-set backspace=indent,eol,start
-set breakindent
-set completeopt=menu,popup
-set confirm
-set copyindent
-set expandtab
-set fileencoding=utf-8
-set fileformat=unix
-set fileformats=unix,dos,mac
-set hidden
-set hlsearch
-set ignorecase
-set incsearch
-set list
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set mouse=a
-set nobackup
-set noerrorbells visualbell t_vb=
-set nostartofline
-set noswapfile
-set nrformats-=octal
-set number
-set ruler
-set scrolloff=5
-set shiftwidth=2
-set shortmess+=I
-set shortmess-=S
-set showcmd
-set smartcase
-set softtabstop=2
-set splitbelow
-set splitright
-set tabstop=2
-set timeoutlen=500
-set title
-set undodir=~/.vim/cache/
-set undofile
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
-set wildignorecase
-set wildmenu
-
-if executable("rg")
-  set grepprg=rg\ --vimgrep
-endif
-
-""""""""""""""""""" Color setting
-"syntax on
-set termguicolors
-set background=dark
-colorscheme onehalfdark
-
+""""""""""""""""""" Other
 " tmux 用の設定
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
