@@ -11,7 +11,6 @@ set expandtab
 set fileencoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos,mac
-" set hidden
 set hlsearch
 set ignorecase
 set incsearch
@@ -26,9 +25,9 @@ set number
 set ruler
 set scrolloff=5
 set shiftwidth=2
-set signcolumn=yes
 set shortmess-=S
 set showcmd
+set signcolumn=yes
 set smartcase
 set softtabstop=2
 set splitbelow
@@ -47,6 +46,23 @@ set wildmenu
 if executable("rg")
   set grepprg=rg\ --vimgrep
 endif
+
+"""""""""""""""""""" Key bind & Command
+command! -nargs=1 Recent :browse filter <args> oldfiles
+autocmd BufEnter * silent! lcd %:p:h
+autocmd FileType help setlocal scrolloff=999
+
+let mapleader=" "
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap jk <ESC>
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>q <C-W>c
+nnoremap <Leader>p :Recent<SPACE>
+nnoremap U <C-R>
 
 """""""""""""""""""" Plugins
 " disable any standard plugin
@@ -69,14 +85,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale', {'for': ['typescript', 'python', 'javascript', 'json', 'yaml']}
 Plug 'lambdalisue/fern.vim'
 Plug 'mhinz/vim-signify'
-Plug 'sonph/onehalf', {'rtp': 'vim'}
+Plug 'rakr/vim-one'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
 
 " colorscheme
-colorscheme onehalfdark
+colorscheme one
 
 " vim-commentary
 autocmd FileType * let b:commentary_startofline=1
@@ -112,23 +128,6 @@ let g:fern#renderer#default#expanded_symbol="▼"
 let g:fern#default_hidden=1
 nmap <Leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
 autocmd FileType fern setlocal nonumber signcolumn=no
-
-"""""""""""""""""""" Key bind & Command
-let mapleader=" "
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap jk <ESC>
-nnoremap <Leader>h <C-W>h
-nnoremap <Leader>j <C-W>j
-nnoremap <Leader>k <C-W>k
-nnoremap <Leader>l <C-W>l
-nnoremap <Leader>q <C-W>c
-nnoremap <Leader>p :Recent<SPACE>
-nnoremap U <C-R>
-
-command! -nargs=1 Recent :browse filter <args> oldfiles
-autocmd BufEnter * silent! lcd %:p:h
-autocmd FileType help setlocal scrolloff=999
 
 """"""""""""""""""" Other
 " for tmux
