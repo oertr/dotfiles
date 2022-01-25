@@ -1,5 +1,4 @@
-﻿"""""""""""""""""""" GLOBAL
-set autoindent
+﻿set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start
@@ -40,6 +39,7 @@ set timeoutlen=500
 set title
 set undodir=~/.vim/cache/
 set undofile
+set updatetime=100
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
 set wildignorecase
 set wildmenu
@@ -68,9 +68,10 @@ packadd! matchit
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale', {'for': ['typescript', 'python', 'javascript', 'json', 'yaml']}
 Plug 'lambdalisue/fern.vim'
+Plug 'mhinz/vim-signify'
 Plug 'sonph/onehalf', {'rtp': 'vim'}
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
 
@@ -124,19 +125,18 @@ nnoremap <Leader>l <C-W>l
 nnoremap <Leader>q <C-W>c
 nnoremap <Leader>p :Recent<SPACE>
 nnoremap U <C-R>
-nnoremap q: :q
 
 command! -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
 autocmd FileType help setlocal scrolloff=999
 
 """"""""""""""""""" Other
-" tmux 用の設定
+" for tmux
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
-" カーソルの形状
-let &t_SI = "\e[6 q" " 挿入モードのカーソル
-let &t_SR = "\e[4 q" " 置換モードのカーソル
-let &t_EI = "\e[2 q" " 挿入、置換モード終了
+" cursor shape
+let &t_SI = "\e[6 q" " insert mode
+let &t_SR = "\e[4 q" " replace mode
+let &t_EI = "\e[2 q" " end insert of replace mode
 
