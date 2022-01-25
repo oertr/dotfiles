@@ -38,7 +38,7 @@ set timeoutlen=500
 set title
 set undodir=~/.vim/cache/
 set undofile
-set updatetime=100
+set updatetime=400
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
 set wildignorecase
 set wildmenu
@@ -47,7 +47,7 @@ if executable("rg")
   set grepprg=rg\ --vimgrep
 endif
 
-"""""""""""""""""""" Key bind & Command
+"""""""""""""""""""" Command & Key bind
 command! -nargs=1 Recent :browse filter <args> oldfiles
 autocmd BufEnter * silent! lcd %:p:h
 autocmd FileType help setlocal scrolloff=999
@@ -66,17 +66,17 @@ nnoremap U <C-R>
 
 """""""""""""""""""" Plugins
 " disable any standard plugin
+let g:loaded_2html_plugin=1
+let g:loaded_getscriptPlugin=1
+let g:loaded_gzip=1
 let g:loaded_netrw=1
 let g:loaded_netrwPlugin=1
-let g:loaded_vimballPlugin=1
-let g:loaded_vimball=1
-let g:loaded_tarPlugin=1
 let g:loaded_tar=1
-let g:loaded_zipPlugin=1
+let g:loaded_tarPlugin=1
+let g:loaded_vimball=1
+let g:loaded_vimballPlugin=1
 let g:loaded_zip=1
-let g:loaded_getscriptPlugin=1
-let g:loaded_2html_plugin=1
-let g:loaded_gzip=1
+let g:loaded_zipPlugin=1
 
 " install plugin
 packadd! matchit
