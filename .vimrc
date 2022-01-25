@@ -26,7 +26,7 @@ set number
 set ruler
 set scrolloff=5
 set shiftwidth=2
-" set shortmess+=I
+set signcolumn=yes
 set shortmess-=S
 set showcmd
 set smartcase
@@ -50,17 +50,17 @@ endif
 
 """""""""""""""""""" Plugins
 " disable any standard plugin
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_vimballPlugin = 1
-let g:loaded_vimball = 1
-let g:loaded_tarPlugin = 1
-let g:loaded_tar = 1
-let g:loaded_zipPlugin = 1
-let g:loaded_zip = 1
-let g:loaded_getscriptPlugin = 1
-let g:loaded_2html_plugin = 1
-let g:loaded_gzip = 1
+let g:loaded_netrw=1
+let g:loaded_netrwPlugin=1
+let g:loaded_vimballPlugin=1
+let g:loaded_vimball=1
+let g:loaded_tarPlugin=1
+let g:loaded_tar=1
+let g:loaded_zipPlugin=1
+let g:loaded_zip=1
+let g:loaded_getscriptPlugin=1
+let g:loaded_2html_plugin=1
+let g:loaded_gzip=1
 
 " install plugin
 packadd! matchit
@@ -85,36 +85,36 @@ autocmd FileType * let b:commentary_startofline=1
 let g:ale_linters_explicit=1
 let g:ale_completion_enabled=1
 let g:ale_python_auto_poetry=1
-let g:ale_linters = {
+let g:ale_linters={
 \ 'python': ['flake8', 'pylsp'],
 \ 'json': 'all',
 \ 'yaml': 'all',
 \ 'typescript': 'all',
 \ 'javascript': 'all'
 \}
-let g:ale_fixers = {
+let g:ale_fixers={
 \ 'python': ['black','isort'],
 \ 'typescript': ['prettier'],
 \ 'javascript': ['prettier'],
 \ 'json': ['prettier'],
 \ 'yaml': ['prettier'],
 \}
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '○'
+let g:ale_sign_error='●'
+let g:ale_sign_warning='○'
 nmap <Leader>f <Plug>(ale_fix)
 nmap <leader>g <Plug>(ale_go_to_definition)
 nmap <leader>r <Plug>(ale_rename)
 
 " Fern
-let g:fern#renderer#default#leaf_symbol = ""
-let g:fern#renderer#default#collapsed_symbol = "▶"
-let g:fern#renderer#default#expanded_symbol = "▼"
-let g:fern#default_hidden = 1
+let g:fern#renderer#default#leaf_symbol=""
+let g:fern#renderer#default#collapsed_symbol="▶"
+let g:fern#renderer#default#expanded_symbol="▼"
+let g:fern#default_hidden=1
 nmap <Leader>e :Fern . -drawer -toggle -reveal=% -width=20<CR>
 autocmd FileType fern setlocal nonumber signcolumn=no
 
 """""""""""""""""""" Key bind & Command
-let mapleader = " "
+let mapleader=" "
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap jk <ESC>
@@ -132,11 +132,11 @@ autocmd FileType help setlocal scrolloff=999
 
 """"""""""""""""""" Other
 " for tmux
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
 " cursor shape
-let &t_SI = "\e[6 q" " insert mode
-let &t_SR = "\e[4 q" " replace mode
-let &t_EI = "\e[2 q" " end insert of replace mode
+let &t_SI="\e[6 q" " insert mode
+let &t_SR="\e[4 q" " replace mode
+let &t_EI="\e[2 q" " end insert of replace mode
 
