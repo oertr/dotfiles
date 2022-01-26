@@ -2,6 +2,7 @@
 set autoread
 set background=dark
 set backspace=indent,eol,start
+set balloonevalterm
 set breakindent
 set completeopt=menu,popup
 set confirm
@@ -36,6 +37,7 @@ set tabstop=2
 set termguicolors
 set timeoutlen=500
 set title
+set ttymouse=sgr
 set undodir=~/.vim/cache/
 set undofile
 set updatetime=400
@@ -117,6 +119,7 @@ let g:ale_fixers={
 \}
 let g:ale_sign_error='●'
 let g:ale_sign_warning='○'
+let g:ale_set_balloons=1
 nmap <Leader>f <Plug>(ale_fix)
 nmap <leader>g <Plug>(ale_go_to_definition)
 nmap <leader>r <Plug>(ale_rename)
