@@ -85,16 +85,19 @@ packadd! matchit
 
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale', {'for': ['typescript', 'python', 'javascript', 'json', 'yaml']}
+Plug 'gruvbox-community/gruvbox'
 Plug 'lambdalisue/fern.vim'
 Plug 'mhinz/vim-signify'
-Plug 'rakr/vim-one'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-jp/vimdoc-ja'
 call plug#end()
 
 " colorscheme
-colorscheme one
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_sign_column="bg0"
+let g:gruvbox_vert_split="bg3"
+colorscheme gruvbox
 
 " vim-commentary
 autocmd FileType * let b:commentary_startofline=1
