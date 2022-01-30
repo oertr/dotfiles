@@ -8,7 +8,6 @@ set completeopt=menu,popup
 set confirm
 set copyindent
 set encoding=utf-8
-set expandtab
 set fileencoding=utf-8
 set fileformat=unix
 set fileformats=unix,dos,mac
@@ -25,12 +24,13 @@ set nrformats-=octal
 set number
 set ruler
 set scrolloff=5
-set shiftwidth=2
+set shiftwidth=0
 set shortmess-=S
 set showcmd
 set signcolumn=yes
 set smartcase
-set softtabstop=2
+set smartindent
+set softtabstop=-1
 set splitbelow
 set splitright
 set tabstop=2
@@ -38,8 +38,7 @@ set termguicolors
 set timeoutlen=500
 set title
 set ttymouse=sgr
-set undodir=~/.vim/cache/
-set undofile
+set undofile undodir=~/.vim/cache/
 set updatetime=400
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
 set wildignorecase
