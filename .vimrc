@@ -14,7 +14,7 @@ set fileformats=unix,dos,mac
 set hlsearch
 set ignorecase
 set incsearch
-set list listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+set list listchars=tab:→\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set mouse=a
 set nobackup
 set noerrorbells visualbell t_vb=
@@ -102,9 +102,13 @@ colorscheme gruvbox
 autocmd FileType * let b:commentary_startofline=1
 
 " ale
-let g:ale_linters_explicit=1
 let g:ale_completion_enabled=1
+let g:ale_completion_max_suggestions=10
+let g:ale_linters_explicit=1
 let g:ale_python_auto_poetry=1
+let g:ale_set_balloons=1
+let g:ale_sign_error='●'
+let g:ale_sign_warning='○'
 let g:ale_linters={
 \ 'python': ['flake8', 'pylsp'],
 \ 'json': 'all',
@@ -119,9 +123,6 @@ let g:ale_fixers={
 \ 'json': ['prettier'],
 \ 'yaml': ['prettier'],
 \}
-let g:ale_sign_error='●'
-let g:ale_sign_warning='○'
-let g:ale_set_balloons=1
 nmap <Leader>f <Plug>(ale_fix)
 nmap <leader>g <Plug>(ale_go_to_definition)
 nmap <leader>r <Plug>(ale_rename)
