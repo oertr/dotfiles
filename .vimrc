@@ -141,7 +141,7 @@ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
 " cursor shape
-let &t_SI="\e[6 q" " insert mode
+let &t_SI="\e[4 q" " insert mode
 let &t_SR="\e[4 q" " replace mode
 let &t_EI="\e[2 q" " end insert of replace mode
 
