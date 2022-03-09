@@ -1,5 +1,6 @@
 [alias]
-	tree = log --graph --oneline --all
+	pclone = clone --filter=blob:none
+	tree = log --graph --oneline --all --abbrev-commit
 [commit]
 	gpgSign = true
 [init]

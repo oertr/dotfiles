@@ -43,6 +43,7 @@ set updatetime=400
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.yarn/*,
 set wildignorecase
 set wildmenu
+set wildoptions=fuzzy
 
 if executable("rg")
   set grepprg=rg\ --vimgrep
