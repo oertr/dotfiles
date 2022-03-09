@@ -26,8 +26,8 @@ alias glog='git log --graph --abbrev-commit'
 alias gpclone='git pclone'
 alias gpull='git pull'
 alias gpush='git push'
-alias gstatus='git status -uall'
 alias gshow='git show'
+alias gstatus='git status -uall'
 alias gtree='git tree'
 
 ### Command
