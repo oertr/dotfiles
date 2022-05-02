@@ -8,7 +8,7 @@ source ~/bin/git-prompt.sh
 alias ..='cd ..'
 alias cp='cp -i'
 alias grep='grep --color'
-alias l='ls -AFlhG --color=auto --group-directories-first'
+alias l='ls -AFlhGv --color=auto --group-directories-first'
 alias mv='mv -i'
 alias path='echo -e ${PATH//:/\\n}'
 alias py='python3'
