@@ -3,6 +3,7 @@ export GIT_COMPLETION_SHOW_ALL=1
 export GPG_TTY=$(tty)
 export LANG=ja_JP.UTF-8
 export LESS='-FR'
+export LESSHISTFILE=/dev/null
 export MANOPT='--nj'
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
