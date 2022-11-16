@@ -16,3 +16,4 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
