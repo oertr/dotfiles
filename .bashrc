@@ -7,6 +7,7 @@ source ~/bin/git-prompt.sh
 ### Aliases
 alias ..='cd ..'
 alias cp='cp -i'
+alias csv='column -s, -t | less -#10 -N -S'
 alias grep='grep --color'
 alias l='ls -AFlhGv --color=auto --group-directories-first'
 alias mv='mv -i'
