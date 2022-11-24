@@ -42,6 +42,9 @@ mcd (){
 findman (){
   rg -Fzl "$1" /usr/share/man/man*/ /usr/share/man/ja/
 }
+h(){
+	$1 --help | less
+}
 
 
 ### Config
